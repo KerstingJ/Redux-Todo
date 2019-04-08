@@ -20,8 +20,19 @@ export default function(state = initial, action){
     // action has a type, and a payload
     switch(action.type){
         case ADD_TODO:
-            console.log("added todo")
-            return state;
+            console.log("added todo", action.payload)
+
+            const todo = {
+                id: Date.now(),
+                text: action.payload,
+                completed: true
+            }
+
+            return {
+                ...state,
+                todos: [...state.todos, todo]
+            };
+
         case COMPLETE_TODO:
             console.log("completed todo")
             return state;

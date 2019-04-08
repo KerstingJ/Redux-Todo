@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
@@ -10,6 +10,19 @@ import {
 
 function app(props){
 
+  const [todo, setTodo] = useState('');
+
+  const handleInput = event => {
+    if (event.target.name === "todo") {
+      setTodo(event.target.value)
+    }
+  }
+
+  const add = event => {
+    event.preventDefault();
+    props.addTodo(todo);
+  }
+
   return (
     <App className="App">
       <h1>TODO list:</h1>
@@ -17,8 +30,8 @@ function app(props){
       {props.todos.map(todo => <Todo />)}
 
       <form>
-        <input name="todo"></input>
-        <button>Add Todo</button>
+        <input name="todo" onChange={handleInput}></input>
+        <button onClick={add}>Add Todo</button>
       </form>
     </App>
   );

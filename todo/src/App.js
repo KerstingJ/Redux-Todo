@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Todo from './components/Todo.js';
 
 import {
-  addTodo, completeTodo, editTodo, deleteTodo
+  addTodo, toggleTodo, editTodo, deleteTodo
 } from './actions/actions.js'
 
 function app(props){
@@ -53,4 +53,4 @@ function mapStateToProps(state){
 }
 //connect takes in a function that mapsStateToProps
 //and it takes in some actions
-export default connect(mapStateToProps, {addTodo, completeTodo, editTodo, deleteTodo})(app)
+export default connect(mapStateToProps, {addTodo, toggleTodo, editTodo, deleteTodo})(app)

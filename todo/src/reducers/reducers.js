@@ -1,6 +1,6 @@
 import { 
     ADD_TODO,
-    COMPLETE_TODO,
+    TOGGLE_TODO,
     DELETE_TODO,
     EDIT_TODO
 } from '../actions/actions.js';
@@ -33,8 +33,8 @@ export default function(state = initial, action){
                 todos: [...state.todos, todo]
             };
 
-        case COMPLETE_TODO:
-            console.log("completed todo")
+        case TOGGLE_TODO:
+            console.log("toggled todo")
             return state;
         case DELETE_TODO:
             console.log("deleted todo")

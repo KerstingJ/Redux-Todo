@@ -1,6 +1,6 @@
 
 export const ADD_TODO = "ADD_TODO";
-export const COMPLETE_TODO = "COMPLETE_TODO";
+export const TOGGLE_TODO = "TOGGLE_TODO";
 export const DELETE_TODO = "DELETE_TODO";
 export const EDIT_TODO = "EDIT_TODO";
 
@@ -12,9 +12,9 @@ export const addTodo = (text) => {
     }
 }
 
-export const completeTodo = (id) => {
+export const toggleTodo = (id) => {
     return {
-        type: COMPLETE_TODO,
+        type: TOGGLE_TODO,
         payload: id
     }
 }

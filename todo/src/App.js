@@ -21,16 +21,17 @@ function app(props){
   const add = event => {
     event.preventDefault();
     props.addTodo(todo);
+    setTodo("")
   }
 
   return (
     <App className="App">
       <h1>TODO list:</h1>
 
-      {props.todos.map(todo => <Todo />)}
+      {props.todos.map(todo => <Todo todo={todo}/>)}
 
       <form>
-        <input name="todo" onChange={handleInput}></input>
+        <input name="todo" onChange={handleInput} value={todo}></input>
         <button onClick={add}>Add Todo</button>
       </form>
     </App>

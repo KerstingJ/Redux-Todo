@@ -1,7 +1,9 @@
 import React from 'react';
 
 export default function(props){
+    const { todo } = props;
+
     return (
-        <div>Iss Todo Item</div>
+        <div>{todo.text}</div>
     )
 }

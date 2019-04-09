@@ -27,8 +27,8 @@ function app(props){
   return (
     <App className="App">
       <h1>TODO list:</h1>
-
-      {props.todos.map(todo => <Todo todo={todo}/>)}
+      {console.log(props.todos)}
+      {props.todos.map(todo => <Todo key={todo.id} toggle={()=> props.toggleTodo(todo.id)} todo={todo}/>)}
 
       <form>
         <input name="todo" onChange={handleInput} value={todo}></input>
@@ -51,6 +51,7 @@ function mapStateToProps(state){
     todos: state.todos
   }
 }
-//connect takes in a function that mapsStateToProps
+
+//connect takes in a function that maps(Redux)StateTo(Components)Props
 //and it takes in some actions
 export default connect(mapStateToProps, {addTodo, toggleTodo, editTodo, deleteTodo})(app)

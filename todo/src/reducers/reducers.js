@@ -36,17 +36,17 @@ export default function(state = initial, action){
 
         case TOGGLE_TODO:
             console.log(action)
-            let findTodo = state.todos.find(todo => todo.id === action.payload);
-            let oldTodos = state.todos.filter(todo => todo.id !== action.payload)
-            let toggledTodo = {
-                ...findTodo,
-                complete: !findTodo.complete
+            let findTodoIndex = state.todos.findIndex(todo => todo.id === action.payload);
+            let updatedTodos = [...state.todos]
+            updatedTodos[findTodoIndex] = {
+                ...updatedTodos[findTodoIndex],
+                complete: !updatedTodos[findTodoIndex].complete
             }
 
             // console.log(toggledTodo)
             return {
                 ...state,
-                todos: [...oldTodos, toggledTodo]
+                todos: updatedTodos
             };
 
         case DELETE_TODO:

@@ -36,11 +36,13 @@ export default function(state = initial, action){
 
         case TOGGLE_TODO:
             console.log(action)
-            let findTodoIndex = state.todos.findIndex(todo => todo.id === action.payload);
-            let updatedTodos = [...state.todos]
+            let findTodoIndex = state.todos.findIndex(todo => todo.id === action.payload); // get location of todo in todos list
+            let updatedTodos = [...state.todos] // make a copy of todos from state
+
+            // use location to grab todo from copy and update its value
             updatedTodos[findTodoIndex] = {
-                ...updatedTodos[findTodoIndex],
-                complete: !updatedTodos[findTodoIndex].complete
+                ...updatedTodos[findTodoIndex], // copy contents of todo
+                complete: !updatedTodos[findTodoIndex].complete // toggle value of completed
             }
 
             // console.log(toggledTodo)
